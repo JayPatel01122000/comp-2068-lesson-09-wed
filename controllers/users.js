@@ -11,7 +11,9 @@ exports.index = async (req, res, next) => {
 
 exports.show = async (req, res, next) => {
   try {
-
+    const { id } = req.params;
+    const user = await User.findById(id);
+    res.status(200).json(user);
   } catch (error) {
     next(error);
   }
@@ -51,7 +53,7 @@ exports.update = async (req, res, next) => {
 
 exports.destroy = async (req, res, next) => {
   try {
-
+    
   } catch (error) {
     next(error);
   }
